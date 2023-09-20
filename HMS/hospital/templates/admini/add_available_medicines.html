@@ -1,0 +1,105 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Add New Elder Patient {% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      input{
+            
+            border-radius: 10px;
+            margin-bottom: 5px;
+            width: 90%;
+        }
+        textarea{
+          height: 40px;
+          border-radius: 10px;
+            margin-bottom: 5px;
+            width: 90%;
+        }
+      form{
+        margin-bottom: 30px;
+        padding: 50px;
+
+      }
+      .batani{
+        background-color: blue;
+        width: 4cm;
+        color: white;
+        border-radius: 10px;
+        padding: 5px;
+      }
+      
+    </style>
+</head>
+<body>
+    <div class="slider">
+       <form method="post">
+         {% csrf_token %}
+     <div class="content">
+       <div class="prince">
+             <figure>
+                 
+
+                  {% if messages %}
+      {% for message in messages %}
+        <div style="margin-top:5rem;" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <h3 style="color: red;font-weight: bold;font-family: bold;font-size: 40px;">  {{message}}</h3>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+      
+      {% endif %}
+
+                 <h3 style="margin-top: 20px">ADD MEDICINE</h3>
+             </figure>
+               <label style="color: black;">Medicine Name</label><br>
+                {{form.medicine_name}}<br><br>
+
+               <label style="color: black;">Medicine Price</label><br>
+               {{form.price}}<br><br>
+
+              <label style="color: black;">Quantity</label><br> 
+               {{form.quantity}}<br><br>
+
+               <label style="color: black;">Description</label><br> 
+               {{form.description}} <br><br>
+
+  
+
+                 <button type="submit" class="batani">
+      {% if not object.pk %}
+      save
+      {% else %}
+
+      update
+      {% endif %}
+
+
+  </button>
+
+       </div>
+     </div>
+      </form>
+   </div>
+
+<script>
+  {% for msg in messages %}
+
+  swal('{{msg}}');
+  {% endfor %}
+</script>
+</body>
+</html>
+
+{% endblock %}

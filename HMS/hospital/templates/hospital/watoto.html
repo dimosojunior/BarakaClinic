@@ -1,0 +1,74 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+
+{% block title %}patients {% endblock %}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>patients</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+<style type="text/css">
+ 
+</style>
+
+</head>
+<body>
+   <div class="slider">
+       <form method="post">
+         {% csrf_token %}
+     <div class="content">
+       <div class="prince">
+             <figure>
+                 <img src="{% static 'hospital/assets/images/logo.png' %}" alt="logo">
+
+                  {% if messages %}
+      {% for message in messages %}
+        <div style="margin-top:5rem;" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <h3 style="color: red;font-weight: bold;font-family: bold;font-size: 40px;">  {{message}}</h3>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
+      
+      {% endif %}
+
+                 <h3>PATIENT REGISTRATION</h3>
+             </figure>
+
+                {{form.fname}}<br><br>
+               
+               {{form.tname}}<br><br>
+               
+               {{form.year}}<br><br>
+
+               {{form.gender}} <br><br>
+
+               {{form.Address}} <br><br>
+
+                 <button type="submit" class="batani">
+      {% if not object.pk %}
+      save
+      {% else %}
+
+      update
+      {% endif %}
+
+
+  </button>
+
+       </div>
+     </div>
+      </form>
+   </div>
+</body>
+</html>
+
+{% endblock %}

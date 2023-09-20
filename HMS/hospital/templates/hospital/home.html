@@ -1,0 +1,83 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Home {% endblock %}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+</head>
+
+<body>
+ 
+    
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center" style="background: url({% static 'hospital/assets/images/images.jpeg' %});background-size: contain;">
+    <div class="container">
+    
+    <!----  <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    ---->
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+              <h3>BARAKA DENTAL CLINIC</h3>
+              <p>
+                Welcome to Baraka Dental Clinic, now you are logged in as {{user.email}}
+                    </p>
+              <div class="text-center">
+              <!---- <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+             ---->
+             
+              </div>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main><!-- End #main -->
+
+
+
+  
+
+</body>
+
+</html>
+{% endblock %}
